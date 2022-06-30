@@ -11,7 +11,7 @@ const TaskComponent = ({ task }) => {
         return () => {
             console.log(`Task: ${task.name} is gping to unmount`);
         };
-    }, [input]);
+    }, [task]);
 
     return (
         <div>
