@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Task } from '../../models/task.class';
 
 
 const TaskComponent = ({ task }) => {
+
+
+    useEffect(() => {
+        console.log('created Task')
+        return () => {
+            console.log(`Task: ${task.name} is gping to unmount`);
+        };
+    }, [input]);
+
     return (
         <div>
             <h2> 
