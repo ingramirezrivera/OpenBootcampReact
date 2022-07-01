@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 //?AÑADIMOS BOOTSTRAP A NUESTRO PROYECTO
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 //!LOS ESTILOS PROPIOS DEBEN IR DEBAJO DEL DE BOOTSTRAP PARA QUE NO NOS PISE
 import './index.css';
 import App from './App';
