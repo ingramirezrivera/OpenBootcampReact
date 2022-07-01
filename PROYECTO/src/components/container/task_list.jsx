@@ -61,7 +61,6 @@ const TaskListComponent = () => {
                                     )
                                 })}
                             </tbody>
-
                         </table>   
                     </div>
                     <TaskForm></TaskForm>
