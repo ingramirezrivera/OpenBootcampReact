@@ -10,7 +10,7 @@ function App() {
     <div className="App">
 
         <TaskListComponent></TaskListComponent>
-        <Father></Father>
+        
     </div>
   );
 }

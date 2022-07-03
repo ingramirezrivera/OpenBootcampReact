@@ -5,7 +5,7 @@ import '../../styles/task.scss'
 import { LEVELS } from '../../models/levels.enum';
 
 
-const TaskComponent = ({ task }) => {
+const TaskComponent = ({ task, complete, remove }) => {
 
 
     useEffect(() => {
@@ -52,9 +52,9 @@ const TaskComponent = ({ task }) => {
      */
     function taskCompletedIcon(){
         if(task.completed){
-            return(<i className="bi bi-toggle-on" style={ {color: 'green', fontSize: '20px'} }></i>)
+            return(<i onClick={() => complete(task)} className="bi bi-toggle-on task-action" style={ {color: 'green', fontSize: '20px'} }></i>)
         }else {
-            return(<i className="bi bi-toggle-off" style={ {color: 'grey', fontSize: '20px'}}></i>)
+            return(<i onClick={() => complete(task)} className="bi bi-toggle-off task-action" style={ {color: 'grey', fontSize: '20px'} }></i>)
         }
     }
 
@@ -75,7 +75,7 @@ const TaskComponent = ({ task }) => {
             <td className='align- middle'>
                 {/* EXECUTION OF A FUCNTION TO RETURN ICON DEPENDING ON COMPLETION */}
                 { taskCompletedIcon() }
-                <i className="bi bi-trash" style={ {color: 'tomato', fontSize: '20px'} }></i>
+                <i onClick={() => remove(task)} className="bi bi-trash task-action" style={ {color: 'tomato', fontSize: '20px'} }></i>
                 
             </td>
 
@@ -88,7 +88,9 @@ const TaskComponent = ({ task }) => {
 
 
 TaskComponent.propTypes = {
-    task: PropTypes.instanceOf(Task)
+    task: PropTypes.instanceOf(Task).isRequired,
+    complete: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
 };
 
 
