@@ -5,7 +5,7 @@ import { CONTACTTYPE } from '../../modules/contacttype.enum';
 import contact from '../../styles/contact.scss';
 
 
-function ContactComponent( { contact }) {
+function ContactComponent( { contact, connection , remove }) {
 
     function contactTypeBadge(){
         switch(contact.contactType){
@@ -35,6 +35,14 @@ function ContactComponent( { contact }) {
         }
     }
 
+    function contactConnectedIcon(){
+        if(contact.connected){
+            return (<i onClick={() => connection(contact)} className="bi bi-check-circle-fill task-action" style={ {color:'green'} }></i>);
+        }else {
+            return (<i onClick={() => connection(contact)} className="bi bi-x-circle-fill task-action" style={ {color: 'tomato'} }></i>)
+        }
+    }
+
     return (
         
         <tr className='fw-normal'>
@@ -51,13 +59,13 @@ function ContactComponent( { contact }) {
                 <span>{contact.phone}</span>
             </td>
             <td className='align- middle'>
-                <span>{contact.connected ? (<i className="bi bi-check-circle-fill " style={ {color:'green'} }></i>) : (<i className="bi bi-x-circle-fill" style={ {color: 'tomato'} }></i>)}</span>
+                <span>{contactConnectedIcon()}</span>
             </td>
             <td>
                 <span>{contactTypeBadge()}</span>
             </td>
             <td  className='align- middle'>
-                <i className="bi bi-trash task-action" style={ {color: 'tomato', fontSize: '20px'} }></i>
+                <i onClick={() => remove(contact)} className="bi bi-trash task-action" style={ {color: 'tomato', fontSize: '20px'} }></i>
                 
             </td>
         </tr>
@@ -66,7 +74,10 @@ function ContactComponent( { contact }) {
 }
 
 ContactComponent.propTypes = {
-    contact: PropTypes.instanceOf(Contact).isRequired
+    contact: PropTypes.instanceOf(Contact).isRequired,
+    connection: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
+
 
 }
 

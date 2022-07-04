@@ -5,7 +5,7 @@ export class Contact {
     lastName = "";
     email = "";
     phone = 0;
-    conNected = false;
+    connected = false;
     contactType = CONTACTTYPE.FAMILY
 
     constructor( name, lastName ,email, phone , connected , contactType  ){
