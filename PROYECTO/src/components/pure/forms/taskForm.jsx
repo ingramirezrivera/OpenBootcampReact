@@ -22,7 +22,7 @@ const TaskForm = ( { add }) => {
     }
 
     return (
-        <form onSubmit={addTask} className='d-flex justify-content-center align-items-center mb-4'>
+        <form onSubmit={addTask} className='d-flex flex-column justify-content-center align-items-center mb-4'>
             <div className='form-outline flex-fill'>
                 <input ref={nameRef} id='inputName'  type='text' className='form-control form-control-lg' placeholder='Task Name' required autoFocus/>
                 <input ref={descriptionRef} id='inputDescription'  type='text' className='form-control form-control-lg' placeholder='Description' required/>
