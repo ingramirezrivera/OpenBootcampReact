@@ -6,9 +6,9 @@ import AddContactForm from '../pure/form/addContactForm';
 
 const ContactListComponent = () => {
 
-    const defaultContact1 = new Contact('ExampleName1', 'Example LastName1', 'example@gmail.com', 123456789, true, CONTACTTYPE.FAMILY );
-    const defaultContact2 = new Contact('ExampleName2', 'Example LastName2', 'example2@gmail.com', 987123654, true, CONTACTTYPE.FRIEND );
-    const defaultContact3 = new Contact('ExampleName3', 'Example LastName3', 'example3@gmail.com', 987654321, false, CONTACTTYPE.WORK );
+    const defaultContact1 = new Contact('Ana Maria', 'Tamayo', 'anatama@gmail.com', 3127485648, true, CONTACTTYPE.FAMILY );
+    const defaultContact2 = new Contact('Juan Andrés', 'Tobón ', 'jatp@gmail.com', 315264124, true, CONTACTTYPE.FRIEND );
+    const defaultContact3 = new Contact('Olga Lucía', 'Ramírez', 'olguita@hotmail.com', 3124786952, false, CONTACTTYPE.WORK );
 
 
 
@@ -56,13 +56,13 @@ const ContactListComponent = () => {
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Contact Name</th>
-                                    <th>Last Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Connected</th>
-                                    <th>Whos</th>  
-                                    <th>Remove</th>  
+                                    <th style={ { padding: '0 20px'} }>Contact Name</th>
+                                    <th style={ { padding: '0 20px'} }>Email</th>
+                                    <th style={ { padding: '0 20px'} }>Last Name</th>
+                                    <th style={ { padding: '0 20px'} }>Phone</th>
+                                    <th style={ { padding: '0 20px'} }>Connected</th>
+                                    <th style={ { padding: '0 20px'} }>Whos</th>  
+                                    <th style={ { padding: '0 20px'} }>Remove</th>  
                                 </tr>
                             </thead>
                             <tbody>
