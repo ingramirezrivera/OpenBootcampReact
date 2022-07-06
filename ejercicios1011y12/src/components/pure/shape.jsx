@@ -8,7 +8,6 @@ export default function ShapeComponent() {
     }
 
     const [mouseOver, setMouseOver] = useState(false);
-    const [doubleClick, setDoubleClick] = useState(false);
     const [ backgroundColor, setBackgroundColor] = useState(initialBackgroundColor);
     
     useEffect(() => {
@@ -47,7 +46,7 @@ export default function ShapeComponent() {
         setBackgroundColor(initialBackgroundColor)
     }
     function handleDoubleClick(){
-        setDoubleClick(true)
+        setMouseOver(false)
         setBackgroundColor(backgroundColor)
         
     }
