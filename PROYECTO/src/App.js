@@ -6,6 +6,7 @@ import TaskListComponent from './components/container/task_list';
 import Father from './components/container/father';
 import OptionalRender from './components/pure/optionalRender';
 import LoginFormik from './components/pure/forms/loginFormik';
+import RegisterFormik from './components/pure/forms/registerFormik';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <TaskListComponent></TaskListComponent>
         <hr />
         <LoginFormik></LoginFormik>
+        <hr />
+        <RegisterFormik></RegisterFormik>
         
     </div>
   );
