@@ -62,8 +62,8 @@ const TaskListComponent = () => {
         <table>
             <thead>
                 <tr>
-                    <th scope='col'>Description</th>
                     <th scope='col'>Title</th>
+                    <th scope='col'>Description</th>
                     <th scope='col'>Priority</th>
                     <th scope='col'>Actions</th>
 
