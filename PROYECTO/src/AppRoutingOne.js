@@ -16,7 +16,6 @@ function AppRoutingOne() {
               <Link to='/about'>| Faqs |</Link>
               <Link to='/profile'>| Profile |</Link>
               <Link to='/una404'>| Not exixting Route |</Link>
-
             </aside>
         </div>
         <main>
