@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+//MODELS
 import { Task } from '../../models/task.class';
-import '../../styles/task.scss'
 import { LEVELS } from '../../models/levels.enum';
+// HOJA DE ESTILOS
+import '../../styles/task.scss'
 
 
 const TaskComponent = ({ task, complete, remove }) => {
@@ -58,9 +60,21 @@ const TaskComponent = ({ task, complete, remove }) => {
         }
     }
 
+    const taskCompleted = {
+        color: 'gray',
+        fontWeight: 'bold',
+        textDecoration: 'line-through'
+    }
+    
+    const taskPending = {
+        color: 'tomato',
+        fontWeight: 'bold',
+    }
+
     return (
 
-        <tr className='fw-normal'>
+        // eslint-disable-next-line react/jsx-no-duplicate-props
+        <tr className='fw-normal' style={task.completed ? taskCompleted : taskPending}>
             <th>
                 <span className='ms-2'>{task.name}</span>
             </th>

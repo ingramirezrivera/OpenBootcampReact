@@ -21,8 +21,11 @@ const TaskListComponent = () => {
 
     //control del ciclo de vida del componente
     useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 3000);
+
         console.log('Task state has been modified')
-        setLoading(false);
         return () => {  
             console.log('Tasklist component is going to unmount')
         };
@@ -54,6 +57,61 @@ const TaskListComponent = () => {
         setTasks(tempTasks);
     }
 
+    const Table = () => {
+    return (
+        <table>
+            <thead>
+                <tr>
+                    <th scope='col'>Description</th>
+                    <th scope='col'>Title</th>
+                    <th scope='col'>Priority</th>
+                    <th scope='col'>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {/* ITERAR SOBRE UNA LISTA DE TAREAS */}
+                {tasks.map((task, index) => {
+                    return(
+                        <TaskComponent 
+                            key={index}
+                            task={task}
+                            complete={completeTask}
+                            remove = {removeTask}>
+                        </TaskComponent>
+                    )
+                })}
+            </tbody>
+        </table>
+
+    )
+    }
+
+    let tasksTable = <Table></Table>
+
+    if(tasks.length > 0){
+        tasksTable = <Table></Table>
+    }else {
+        tasksTable = (
+            <div>
+                <h3>There are no task to show</h3>
+                <h4>Please create one</h4>
+            </div>
+            
+        ) 
+
+    }
+
+    const spinner = () => {
+        return(
+            <div class="text-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div>
             <div className='col-12'>
@@ -65,34 +123,10 @@ const TaskListComponent = () => {
                     </div>
                     {/* CARD BODY CONTENT */}
                     <div className='card-body' data-mdb-perfect-scrollbar='true' style={ { position: 'relative', height: '400px'} }>
-                        <table>
-                            <tr>
-                                <th scope='col'>Title</th>
-                                <th scope='col'>Description</th>
-                                <th scope='col'>Priority</th>
-                                <th scope='col'>Actions</th>
-                            </tr>
-                            <tbody>
-                                {/* ITERAR SOBRE UNA LISTA DE TAREAS */}
-                                {tasks.map((task, index) => {
-                                    return(
-                                        <td>
-                                            <TaskComponent 
-                                                key={index}
-                                                task={task}
-                                                complete={completeTask}
-                                                remove = {removeTask}>
-                                            </TaskComponent>
-                                        </td>
-                                        
-                                        
-                                    )
-                                })}
-                            </tbody>
-                        </table>   
+                        { loading ? spinner() : tasksTable }  
                     </div>
                 </div>
-                <TaskForm add={addTask}>
+                <TaskForm add={addTask} length={tasks.length}>
 
                 </TaskForm>
             </div>
