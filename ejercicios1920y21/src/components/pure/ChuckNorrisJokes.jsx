@@ -5,10 +5,12 @@ import { getRandomJokes } from '../../services/axiosService';
 export default function ChuckNorrisJokes() {
 
     const [joke, setJoke] = useState({});
+    let [good, setGood] = useState(0);
+    let [bad, setBad] = useState(0);
 
     useEffect(() => { 
         obtainJoke()    
-    }, []);
+    },[]);
 
     const obtainJoke = () => {
         getRandomJokes()
@@ -23,6 +25,20 @@ export default function ChuckNorrisJokes() {
             })
     }
 
+    const goodJoke = () => {
+        good += 1;
+        setGood(good)
+        obtainJoke()
+        console.log(good)
+    }
+
+    const badJoke = () => {
+        bad += 1;
+        setBad(bad)
+        obtainJoke()
+        console.log(bad)
+    }
+ 
     console.log(joke.value)
 
     return (
@@ -31,8 +47,11 @@ export default function ChuckNorrisJokes() {
             <img src='https://api.chucknorris.io/img/chucknorris_logo_coloured_small@2x.png' style={{width:'250px'}}/>
             
             <p>{joke.value}</p>
-            <p>{joke.id}</p>
-            <button onClick={obtainJoke} style={{backGround: 'white', borderRadius: '10px', padding:'25px', fontWeight: 'Bold', fontSize:'25px'}}>New Chuck Joke</button>
+            <button onClick={badJoke}>Bad Joke</button>
+            <button onClick={obtainJoke} >New Chuck Joke</button>
+            <button onClick={goodJoke}>Good Joke</button>
+            <p>{good}</p>
+            <p>{bad}</p>
 
 
 
