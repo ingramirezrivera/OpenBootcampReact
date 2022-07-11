@@ -1,20 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-//?AÑADIMOS BOOTSTRAP A NUESTRO PROYECTO
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-//!LOS ESTILOS PROPIOS DEBEN IR DEBAJO DEL DE BOOTSTRAP PARA QUE NO NOS PISE
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AppRoutingFinal from './AppRoutingFinal';
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    {/* <AppRoutingFinal /> */}
   </React.StrictMode>
 );
 
