@@ -3,15 +3,16 @@ import './App.css';
 import AsyncExample from './components/pure/AsyncExample';
 import Observableexample from './components/pure/ObservableExample';
 import Fetchexample from './components/pure/FetchExample';
-import Axiosexample from './components/pure/AxiosExample';
+import Axioscrudexample from './components/pure/AxiosCRUDExample';
 
 function App() {
   return (
     <div className="App">
-      <AsyncExample />
+      {/* <AsyncExample />
       <Observableexample />
       <Fetchexample />
-      <Axiosexample/>
+      <Axiosexample/> */}
+      <Axioscrudexample />
     </div>
   );
 }
