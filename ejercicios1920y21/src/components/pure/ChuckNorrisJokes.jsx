@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { getRandomJokes } from '../../services/axiosService';
 
+//Material Ui
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+import ButtonGroup  from '@mui/material/ButtonGroup';
+import Icon from '@mui/material/Icon';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+
 
 export default function ChuckNorrisJokes() {
 
@@ -28,14 +36,12 @@ export default function ChuckNorrisJokes() {
     const goodJoke = () => {
         good += 1;
         setGood(good)
-        obtainJoke()
         console.log(good)
     }
 
     const badJoke = () => {
         bad += 1;
         setBad(bad)
-        obtainJoke()
         console.log(bad)
     }
  
@@ -43,18 +49,22 @@ export default function ChuckNorrisJokes() {
 
     return (
         <div>
+        <Container maxWidth="sm">
             <h1>Chuck Norris Jokes</h1>
             <img src='https://api.chucknorris.io/img/chucknorris_logo_coloured_small@2x.png' style={{width:'250px'}}/>
             
             <p>{joke.value}</p>
-            <button onClick={badJoke}>Bad Joke</button>
-            <button onClick={obtainJoke} >New Chuck Joke</button>
-            <button onClick={goodJoke}>Good Joke</button>
-            <p>{good}</p>
-            <p>{bad}</p>
+            
+            <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                <Button variant="contained" onClick={badJoke}><ThumbDownIcon/></Button>
+                <Button variant="contained" onClick={obtainJoke}>New Chuck Joke</Button>
+                <Button variant="contained" onClick={goodJoke}><ThumbUpAltIcon /></Button>
+            </ButtonGroup>
+            <p>Good Jokes: {good}</p>
+            <p>Bad Jokes: {bad}</p>
 
 
-
+        </Container>
         </div>
     )
 }
