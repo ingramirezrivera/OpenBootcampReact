@@ -19,7 +19,6 @@ const filterTodos = (todos, filter) => {
         default:
             return todos;
     }
-
 }
 
 const mapStateToProps = (state) => {
