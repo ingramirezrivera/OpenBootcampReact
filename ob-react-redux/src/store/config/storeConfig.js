@@ -1,12 +1,10 @@
 import createSagaMiddleware from 'redux-saga';
-import { applyMiddleware, compose, createStore } from 'redux';
+import { applyMiddleware, compose, legacy_createStore as createStore} from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { rootReducer } from '../reducers/rootReducer';
 import { watcherSaga } from '../sagas/sagas';
-import { useState } from 'react';
 
 export const createAppStore = () => {
-
     let store = createStore(rootReducer, composeWithDevTools());
 
     return store;
