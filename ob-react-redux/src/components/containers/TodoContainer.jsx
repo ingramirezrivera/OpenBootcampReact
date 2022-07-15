@@ -8,7 +8,7 @@ import TodoList from '../pure/TodoList';
 
 // Filter Todo List
 const filterTodos = (todos, filter) => {
-
+    console.log(filter)
     switch (filter) {
         case 'SHOW_ALL':
             return todos;

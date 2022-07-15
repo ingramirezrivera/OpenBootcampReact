@@ -17,7 +17,7 @@ let appAsyncStore = createAppAsyncStore()
 ReactDOM.render(
   <Provider store={appAsyncStore}>
     <React.StrictMode>
-      {/* <App /> */}
+      <App />
       <AppReduxSaga />
     </React.StrictMode>
   </Provider>,

@@ -40,7 +40,8 @@ export const toggleTodo = (id) => {
  * @param {string} filter 
  * @returns action SET_VISIBILITY_FILTER
  */
-export const setVisibilityFilter = (filter) => {
+ export const setVisibilityFilter = (filter) => {
+    console.log("Onset", filter)
     return {
         type: SET_VISIBILITY_FILTER,
         payload: {

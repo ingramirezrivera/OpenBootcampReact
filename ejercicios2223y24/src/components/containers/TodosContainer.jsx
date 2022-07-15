@@ -1,22 +1,22 @@
-import React from "react";
+import React from 'react'
 import { connect } from 'react-redux'
-import { toggleTodo } from "../../store/actions/actions";
-import TodoList from "../pure/TodoList";
 
+// Actions
+import { toggleTodo } from '../../store/actions/actions'
 
-//Filter TodoList
+import TodoList from '../pure/TodoList';
+
+// Filter Todo List
 const filterTodos = (todos, filter) => {
     switch (filter) {
-
-    case 'SHOW_ALL':
-        return  todos;
-    case 'SHOW_ACTIVE':
-        return todos.filter((todo) => !todo.completed);
-    case 'SHOW_COMPLETED':
-        return todos.filter((todo) => todo.completed);
-
-    default:
-        return todos;
+        case 'SHOW_ALL':
+            return todos;
+        case 'SHOW_ACTIVE':
+            return todos.filter((todo) => !todo.completed);
+        case 'SHOW_COMPLETED':
+            return todos.filter((todo) => todo.completed);
+        default:
+            return todos;
     }
 }
 
@@ -34,7 +34,7 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-//Conect the State & Dispatch with TodoList's Props
-const TodosContainer = connect(mapStateToProps,mapDispatchToProps)(TodoList)
+// We connect State & Dispach to TodoList's Props 
+const TodosContainer = connect(mapStateToProps, mapDispatchToProps)(TodoList)
 
 export default TodosContainer;
