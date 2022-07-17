@@ -1,5 +1,6 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useContext } from 'react';
 
+const myContext = React.createContext(null); 
 
 // Actions
 const FIELD = 'FIELD';
@@ -16,7 +17,6 @@ const initialState = {
     isLoading: false,
     isLoggedIn: false
 }
-
 
 // Reducer
 const loginReducer = (state, action) => {
@@ -84,7 +84,7 @@ const Loginusereducer = () => {
             }
             dispatch({type: SUCCESS})
         } catch (error) {
-           dispatch({type:ERROR})
+            dispatch({type:ERROR})
         }
     }
 

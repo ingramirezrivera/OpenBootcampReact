@@ -1,23 +1,22 @@
 import React, { useContext } from 'react'
+import { myContext } from '../containers/TasksList'
 
-export default function Task({ myContext, onClick, completed, id, text }) {
+function Task() {
 
   const state = useContext(myContext);
 
+  const { id, taskname, description, completed } = state;
 
+  console.log(state)
+  
   return (
-    <div>
-      <li onClick={ onclick } 
-          style={
-            {
-                textDecoration: completed ? 'line-through': 'none',
-                textDecorationColor: completed ? 'green' : 'none',
-                color: completed ? 'green' : 'white'  
-            } 
-        }>
-        { id } - { text }
+      <li>
+        <p>Tasks: { id }</p>
+        <p>Tasks Name: { taskname }</p>
+        <p>Tasks Description: { description }</p>
+        <p>Task Completed: { completed ? 'Completed' : 'Pending' }</p>
       </li>
-
-    </div>
   )
 }
+
+export default Task;
