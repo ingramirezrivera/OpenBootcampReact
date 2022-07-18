@@ -14,7 +14,6 @@ const Points = () => {
     return (
         <p>Points: { state.count }</p>
     )
-
 }
 
 const Counter = () => {
@@ -59,7 +58,7 @@ const Counter = () => {
                         () => dispatch({
                             type: INCREMENT,
                             payload: {
-                                quantity: 2
+                                quantity: 1
                                 }
                             })
                     }
