@@ -26,9 +26,6 @@ export default function TaskComponent() {
       }
     }
 
-    //TODO TERMINAR DE LLAMAR LA FUNCION FILTERTASKS PARA RENDERIZARLA
-
-
 
     //Initial State for reducer
     let initialState = []
@@ -63,7 +60,9 @@ export default function TaskComponent() {
     
     }
 
+
   const [state, dispatch] = useReducer(taskReducer, initialState)
+  console.log(dispatch)
 
   const createTask = () => {
     dispatch({
