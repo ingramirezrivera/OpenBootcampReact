@@ -3,41 +3,24 @@ import { Store } from '../Store/config/StoreProvider';
 import Task from '../pure/Task'
 
 
-const TaskList = () => {
+const TaskList = ({toggleTask}) => {
 
     const {state, dispatch} = useContext(Store);
-    
-    const toggleTask = (task) => {
-        const updateTask = {...task, completed: !task.completed}
-        dispatch({
-            type: 'TOGGLE_TASK',
-            payload: updateTask
-        })
-    }
-
-    const deleteTask = (task) => {
-        dispatch({
-            type: 'DELETE_TASK',
-            payload: task
-        })
-    }
 
     return (
         <>
             <h1>Task List</h1>
-
             <ul>
-                { (state.taskList.length > 0) ? 
-                state.taskList.map((task, index) => {
-                    return (
-                        <Task />
-                    )
-                    
-                }):
-                <p>No Tasks to Show</p>
-
+                {   (state.taskList.length > 0) 
+                    ? 
+                        state.taskList.map((task, index) => {
+                            return(
+                                <Task task={task} key={index}/>
+                            )
+                        })
+                    :
+                        <p>No Tasks to Show - Please create one</p>
                 }
-                    
             </ul>
         </>            
         );
@@ -45,3 +28,15 @@ const TaskList = () => {
 }
 
 export default TaskList;
+
+
+// { (state.taskList.length > 0) ? 
+//     state.taskList.map((task, index) => {
+//         return (
+//             <Task />
+//         )
+        
+//     }):
+//     <p>No Tasks to Show</p>
+
+//     }

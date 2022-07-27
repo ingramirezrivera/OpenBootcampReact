@@ -1,9 +1,8 @@
 import './App.css';
+import FilterContainer from './components/containers/FilterContainer';
 import TaskFormContainer from './components/containers/TaskFormContainer';
-import TaskList from './components/pure/TaskList';
+import TaskListContainer from './components/containers/TaskListContainer';
 import StoreProvider from './components/Store/config/StoreProvider';
-
-
 
 function App() {
   return (
@@ -12,8 +11,8 @@ function App() {
       <StoreProvider>
         <h1>Your Task App</h1>
         <TaskFormContainer />
-        {/* <TaskList /> */}
-        
+        <TaskListContainer />
+        <FilterContainer />
       </StoreProvider>
       </header>
     </div>

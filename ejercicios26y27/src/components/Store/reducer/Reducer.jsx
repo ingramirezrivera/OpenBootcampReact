@@ -1,15 +1,12 @@
+import { CREATE_TASK, DELETE_TASK, TOGGLE_TASK,  SET_VISIBILITY_FILTER } from "../actions/actions";
+
 const Reducer = (state, action) => {
-
-    const CREATE_TASK = 'CREATE_TASK';
-    const TOGGLE_TASK = 'TOGGLE_TASK';
-    const DELETE_TASK = 'DELETE_TASK';
-
     switch (action.type) {
         case CREATE_TASK:
             const newTask = action.payload;
             const newTaskToList = [...state.taskList, newTask]
             const newStateOfTasks = {
-                ...state, taskList: newTaskToList
+                ...state, taskList: newTaskToList, taskListFilter: newTaskToList
             }
             return newStateOfTasks
         case TOGGLE_TASK:
@@ -25,6 +22,8 @@ const Reducer = (state, action) => {
             const newListOfTaskAfterDeleting = state.taskList.filter(task => task.id !== action.payload.id)
             const newStateOfTaskAfterDeleting = {...state, taskList: newListOfTaskAfterDeleting}
             return newStateOfTaskAfterDeleting
+        case SET_VISIBILITY_FILTER:
+            return action.payload.filter
         default: 
             return state
         }

@@ -4,7 +4,7 @@ import Reducer from '../reducer/Reducer';
 const initialState={
     task:{},
     taskList:[],
-    taskListFiltered: []
+    taskListFilter: []
 }
 
 const Store = createContext(initialState);

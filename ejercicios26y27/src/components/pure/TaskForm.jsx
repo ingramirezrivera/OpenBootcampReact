@@ -1,7 +1,6 @@
-import React, { useState, useRef, useContext } from 'react';
-import { Store } from '../Store/config/StoreProvider';
+import React, { useRef } from 'react';
 
-const TaskForm = ({onSubmit}) => {
+const TaskForm = ({ onSubmit }) => {
 
     const newTaskName = useRef();
     const newTaskDescription = useRef();

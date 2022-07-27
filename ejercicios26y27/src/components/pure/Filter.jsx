@@ -1,30 +1,35 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import { setVisibilityFilter } from '../Store/actions/actions';
+import { Store } from '../Store/config/StoreProvider';
 
 
-const Filter = ({active, onClick, children}) => {
+const Filter = () => {
 
-    if(active){
-        return (<span className='active'>{children}</span>)
+    const { state,dispatch } = useContext(Store);
+
+    const showAll = () => {
+        
+    }
+    const showActive = () => {
+
+    }
+    const showCompleted = () => {
+
     }
 
     return (
-        <button 
-            className='filter' 
-            onClick={(e) => {
-                e.preventDefault()
-                onClick()
-            }}>
-            {children}
-        </button>
+        <div>
+            <div>
+                {
+                    state.taskListFilter.map((task, index) => 
+                    <li key={index}> {task.taskName} - {task.taskDescription}</li>)
+                }
+            </div>
+            <button onClick={showAll}>Show All</button>
+            <button onClick={showActive}>Show Active</button>
+            <button onClick={showCompleted}>Show Completed</button>
+        </div>
     );
-};
-
-
-Filter.propTypes = {
-    active: PropTypes.bool.isRequired,
-    onClick: PropTypes.func.isRequired,
-    children: PropTypes.node.isRequired
 };
 
 

@@ -1,12 +1,22 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+import { toggleTask } from '../Store/actions/actions';
+import { deleteTask } from '../Store/actions/actions';
 import { Store } from '../Store/config/StoreProvider';
 
+const Task = ({index, task}) => {
 
-const Task = ({index, task, toggleTask, deleteTask}) => {
+    const {state,dispatch} = useContext(Store)
 
-    const {state, dispatch} = useContext(Store);
+    const handleToggle = (e, task) => {
+        e.preventDefault()
+        const updateTask = {...task, completed: !task.completed}
+        dispatch(toggleTask(updateTask))
+    }
 
+    const handleDelete = (e,task) => {
+        e.preventDefault()
+        dispatch(deleteTask(task))
+    }
 
     return (
         <li key={index}
@@ -17,9 +27,9 @@ const Task = ({index, task, toggleTask, deleteTask}) => {
                     color: task.completed ? 'green' : 'white'  
                 }
             }
-            onClick={() => toggleTask(task)}
+            onClick={(e) => handleToggle(e, task)}
             >{task.id} - {task.taskName} - {task.taskDescription} - 
-            <button onClick={() => deleteTask(task)}>Delete</button>
+            <button onClick={(e) => handleDelete(e, task)}>Delete</button>
         </li>
     );
 };
