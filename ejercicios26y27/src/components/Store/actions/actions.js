@@ -34,10 +34,10 @@ export const deleteTask = (task) => {
 
 export const setVisibilityFilter = (filter) => {
     return {
-        // type: SET_VISIBILITY_FILTER,
-        // payload: {
-        //     filter
-        // }
+        type: SET_VISIBILITY_FILTER,
+        payload: {
+            filter
+        }
     }
 }
 

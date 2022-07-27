@@ -16,11 +16,11 @@ const Reducer = (state, action) => {
                 }
                 return task;
             })
-            const newStateUpdatedTask = {...state, taskList: taskToUpdate}
+            const newStateUpdatedTask = {...state, taskList: taskToUpdate, taskListFilter: taskToUpdate}
             return newStateUpdatedTask
         case DELETE_TASK:
             const newListOfTaskAfterDeleting = state.taskList.filter(task => task.id !== action.payload.id)
-            const newStateOfTaskAfterDeleting = {...state, taskList: newListOfTaskAfterDeleting}
+            const newStateOfTaskAfterDeleting = {...state, taskList: newListOfTaskAfterDeleting, taskListFilter: newListOfTaskAfterDeleting}
             return newStateOfTaskAfterDeleting
         case SET_VISIBILITY_FILTER:
             return action.payload.filter

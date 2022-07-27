@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Store } from '../Store/config/StoreProvider';
 import Task from '../pure/Task'
+import Filter from './Filter';
 
 
 const TaskList = ({toggleTask}) => {
@@ -13,11 +14,16 @@ const TaskList = ({toggleTask}) => {
             <ul>
                 {   (state.taskList.length > 0) 
                     ? 
-                        state.taskList.map((task, index) => {
-                            return(
+                        <div>
+                            <Filter />
+                            <br />
+                            {state.taskListFilter.map((task, index) => {
+                            return(                        
                                 <Task task={task} key={index}/>
                             )
-                        })
+                            })}
+                        </div>
+                        
                     :
                         <p>No Tasks to Show - Please create one</p>
                 }
