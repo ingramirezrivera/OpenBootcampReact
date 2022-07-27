@@ -1,13 +1,20 @@
 import './App.css';
-import TaskComponent from './components/container/TasksComponent';
+import TaskFormContainer from './components/containers/TaskFormContainer';
+import TaskList from './components/pure/TaskList';
+import StoreProvider from './components/Store/config/StoreProvider';
+
 
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Tasks App</h1>
-        <TaskComponent />
+      <StoreProvider>
+        <h1>Your Task App</h1>
+        <TaskFormContainer />
+        {/* <TaskList /> */}
+        
+      </StoreProvider>
       </header>
     </div>
   );
